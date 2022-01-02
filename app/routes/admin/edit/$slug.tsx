@@ -29,6 +29,8 @@ export const action: ActionFunction = async ({ request }: any) => {
   const slug = formData.get('slug')
   const markdown = formData.get('markdown')
 
+  console.log(slug, 'slug')
+
   const errors: PostError = {}
   if (!title) errors.title = true
   if (!slug) errors.slug = true
@@ -70,7 +72,7 @@ export default function NewPost() {
       <p>
         <label>
           Post Slug: {errors?.slug ? <em>Slug is required</em> : null}
-          <input type="text" name="slug" id="slug" disabled={true} />
+          <input type="text" name="slug" id="slug" />
         </label>
       </p>
       <p>
